@@ -17,10 +17,9 @@ module.exports = {
       'vn',
       'id',
     ],
-    localePath:
-      process.env.NEXT_PUBLIC_ENVIRONMENT === 'production'
-        ? path.resolve('./public/locales')
-        : path.resolve('./apps/dynamic-i18n/public/locales'),
+    ...(process.env.NEXT_PUBLIC_ENVIRONMENT === 'production'
+      ? {}
+      : { localePath: path.resolve('./apps/dynamic-i18n/public/locales') }),
   },
   detection: {
     caches: ['cookie'],
