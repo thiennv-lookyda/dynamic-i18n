@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { getI18nConfig } from '../../next-i18next.config';
+import i18nConfig from '../../next-i18next-server.config';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 
@@ -9,7 +9,7 @@ export async function getServerSideProps({ locale }) {
       ...(await serverSideTranslations(
         locale,
         ['booking-detail', 'common'],
-        getI18nConfig(true)
+        i18nConfig
       )),
     },
   };
