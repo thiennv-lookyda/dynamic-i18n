@@ -3,7 +3,7 @@ import styles from './index.module.scss';
 import i18nConfig from '../next-i18next.config';
 import { useTranslation } from 'next-i18next';
 
-export async function getStaticProps({ locale }) {
+export async function getServerSideProps({ locale }) {
   return {
     props: {
       ...(await serverSideTranslations(
