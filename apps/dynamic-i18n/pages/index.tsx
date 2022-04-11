@@ -1,15 +1,15 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import styles from './index.module.scss';
-import getI18nConfig from '../next-i18next.config';
+import i18nConfig from '../next-i18next-static.config';
 import { useTranslation } from 'next-i18next';
 
-export async function getStaticProps({ locale }) {
+export async function getServerSideProps({ locale }) {
   return {
     props: {
       ...(await serverSideTranslations(
         locale,
         ['common', 'footer'],
-        getI18nConfig()
+        i18nConfig
       )),
       // Will be passed to the page component as props
     },
