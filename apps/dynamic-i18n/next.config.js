@@ -1,6 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const withNx = require('@nrwl/next/plugins/with-nx');
-const { i18n } = require('./next-i18next-server.config');
+const { i18n } = require('./next-i18next.config');
 
 /**
  * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
