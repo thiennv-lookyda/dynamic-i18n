@@ -17,10 +17,7 @@ module.exports = {
       'vn',
       'id',
     ],
-
-    ...(typeof window === 'undefined'
-      ? { localePath: path.resolve('./apps/dynamic-i18n/public/locales') }
-      : { localePath: path.resolve('./public/locales') }),
+    localePath: path.resolve('./public/locales'),
   },
   detection: {
     caches: ['cookie'],
