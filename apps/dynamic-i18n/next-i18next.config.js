@@ -1,6 +1,12 @@
 const path = require('path');
 
-module.exports = function getI18nServerConfig(isServerSide) {
+module.exports = function getI18nConfig(isServerSide) {
+  const localePath = !isServerSide
+    ? './apps/dynamic-i18n/public/locales'
+    : process.env.NEXT_PUBLIC_IS_LOCAL === 'true'
+    ? './apps/dynamic-i18n/public/locales'
+    : './public/locales';
+  console.log(localePath, process.env.NEXT_PUBLIC_IS_LOCAL);
   return {
     i18n: {
       defaultLocale: 'en',
@@ -18,13 +24,7 @@ module.exports = function getI18nServerConfig(isServerSide) {
         'vn',
         'id',
       ],
-      localePath: path.resolve(
-        !isServerSide
-          ? './apps/dynamic-i18n/public/locales'
-          : process.env.NEXT_PUBLIC_IS_LOCAL === 'true'
-          ? './apps/dynamic-i18n/public/locales'
-          : './public/locales'
-      ),
+      localePath: path.resolve(localePath),
     },
     detection: {
       caches: ['cookie'],
