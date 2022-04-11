@@ -1,6 +1,6 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import styles from './index.module.scss';
-import getI18nConfig from '../next-i18next.config';
+import { getI18nConfig } from '../next-i18next.config';
 import { useTranslation } from 'next-i18next';
 
 export async function getServerSideProps({ locale }) {
