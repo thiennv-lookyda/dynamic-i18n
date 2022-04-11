@@ -17,4 +17,4 @@ function CustomApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default appWithTranslation(CustomApp, i18nConfig);
+export default appWithTranslation(CustomApp);
