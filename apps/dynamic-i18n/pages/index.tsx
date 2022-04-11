@@ -1,6 +1,22 @@
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import styles from './index.module.scss';
+import i18nConfig from '../next-i18next.config';
+import { useTranslation } from 'next-i18next';
 
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(
+        locale,
+        ['common', 'footer'],
+        i18nConfig
+      )),
+      // Will be passed to the page component as props
+    },
+  };
+}
 export function Index() {
+  const { t } = useTranslation();
   /*
    * Replace the elements below with your own.
    *
@@ -13,7 +29,7 @@ export function Index() {
           <div id="welcome">
             <h1>
               <span> Hello there, </span>
-              Welcome dynamic-i18n 👋
+              {t('common:flights')} 👋
             </h1>
           </div>
 
